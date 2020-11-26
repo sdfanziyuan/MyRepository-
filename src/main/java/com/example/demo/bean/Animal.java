@@ -1,7 +1,7 @@
 package com.example.demo.bean;
 
 import java.util.HashMap;
-import java.util.*;
+
 /**
  * @author sdpjw
  * @email ljf8838@163.com
@@ -24,6 +24,7 @@ public class Animal extends HashMap<String,Object>{
     }
     public void githubPushTest(){
         //githubPushTest1
+        //DDDDDD
         //DDDDDD
     }
 
