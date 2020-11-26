@@ -22,6 +22,9 @@ public class Animal extends HashMap<String,Object>{
         System.out.println(animal.get("SSS"));
 
     }
+    public void githubchangetest(){
+        //change1
+    }
 
 
 }
