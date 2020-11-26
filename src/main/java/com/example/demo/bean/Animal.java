@@ -24,7 +24,7 @@ public class Animal extends HashMap<String,Object>{
     }
     public void githubPushTest(){
         //githubPushTest1
-        //D
+        //DD
     }
 
 
