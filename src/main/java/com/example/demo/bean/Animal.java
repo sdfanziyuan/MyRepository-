@@ -23,7 +23,7 @@ public class Animal extends HashMap<String,Object>{
 
     }
     public void githubPushTest(){
-        //githubPushTest2
+        //githubPushTest1
     }
 
 
