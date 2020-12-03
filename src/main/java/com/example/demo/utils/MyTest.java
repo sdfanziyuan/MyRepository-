@@ -40,8 +40,4 @@ public class MyTest {
                 (ShangHaiService)ApplicationContextUtil.getBean("shangHaiService");
         shangHaiService.addValues(new ShangHai());
     }
-
-
-
-
 }

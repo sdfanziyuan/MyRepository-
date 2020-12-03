@@ -1,32 +1,49 @@
 package com.example.demo.bean;
 
-import java.util.HashMap;
+import org.junit.Test;
+
+import java.util.*;
 
 /**
  * @author sdpjw
  * @email ljf8838@163.com
  * @date 2020/11/24 17:55
  */
-public class Animal extends HashMap<String,Object>{
-    public Animal(){
-        super();
+public class Animal{
+    public void run(){
+        System.out.println("animalrun");
     }
-    public String put(String key,Object value){
-        super.put(key,value);
-        return "";
-    }
+
     public static void main(String args[]){
-        Animal animal = new Animal();
-
-        animal.put("SSS","AAA");
-        System.out.println(animal.get("SSS"));
+        List<String> stringList = new ArrayList<>();
+        List<Integer> integerList = new ArrayList<>();
+        stringList.add("aaa");
+        stringList.add("bbb");
+        integerList.add(1);
+        integerList.add(2);
+        getData(stringList);
+        getData(integerList);
 
     }
-    public void githubPushTest(){
-        //githubPushTest1
-        //DDDDDD
-        //DDDDDD
-    }
 
+    public static void getData(List<?> data){
+        System.out.println("data="+data);
+    }
+    public static void getNumber(List<? extends Number> data){
+        System.out.println("data="+data);
+    }
 
 }
+class Cat extends Animal{
+    public void run(){
+        System.out.println("catrun");
+    }
+    public void speak(){
+        System.out.println("catSpeak");
+    }
+}
+
+
+
+
+

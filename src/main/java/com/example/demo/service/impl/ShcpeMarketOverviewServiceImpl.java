@@ -1,0 +1,27 @@
+package com.example.demo.service.impl;
+
+import com.example.demo.mapper.ShcpeMarketOverviewDao;
+import com.example.demo.po.ShcpeMarketOverviewEntity;
+import com.example.demo.service.ShcpeMarketOverviewService;
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.example.demo.mapper.ShcpeMarketOverviewDao;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class ShcpeMarketOverviewServiceImpl extends ServiceImpl<ShcpeMarketOverviewDao, ShcpeMarketOverviewEntity> implements ShcpeMarketOverviewService {
+
+    @Override
+    public ShcpeMarketOverviewEntity get() {
+        // 获取最近一条市场数据
+        List<ShcpeMarketOverviewEntity> shcpeMarketOverviewEntityList = selectList(new EntityWrapper<ShcpeMarketOverviewEntity>()
+                .orderBy("create_time", false).last("LIMIT 1")
+        );
+        if (null != shcpeMarketOverviewEntityList && !shcpeMarketOverviewEntityList.isEmpty()) {
+            return shcpeMarketOverviewEntityList.get(0);
+        }
+        return null;
+    }
+}
