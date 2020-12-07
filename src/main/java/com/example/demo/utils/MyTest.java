@@ -1,7 +1,5 @@
 package com.example.demo.utils;
 
-import com.example.demo.po.ShangHai;
-import com.example.demo.service.ShangHaiService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -26,12 +24,4 @@ public class MyTest {
         }
     }
 
-    @Test
-    public void test2(){
-        for(int i = 0;i < 10;i++) {
-            ShangHaiService shangHaiService =
-                    (ShangHaiService) ApplicationContextUtil.getBean("shangHaiService");
-            shangHaiService.addValues(new ShangHai());
-        }
-    }
 }
