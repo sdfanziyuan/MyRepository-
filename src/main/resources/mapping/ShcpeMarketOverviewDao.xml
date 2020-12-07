@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.ShcpeMarketOverviewDao">
-    <insert id="set" parameterType="com.example.demo.po.ShcpeMarketOverviewEntity">
+    <insert id="setValue" parameterType="com.example.demo.po.ShcpeMarketOverviewEntity">
         insert into shcpe_market_overview
         (
             id,
@@ -36,7 +36,7 @@
             #{yearAcceptNum},
             #{yearAcceptAmount},
             #{yearDiscountNum},
-            #{yearDiscountAmount},
+            #{yerDiscountAmount},
             #{yearTradeNum},
             #{yearTradeAmount}
         )

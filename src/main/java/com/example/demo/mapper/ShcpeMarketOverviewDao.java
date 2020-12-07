@@ -7,5 +7,5 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface ShcpeMarketOverviewDao extends BaseMapper<ShcpeMarketOverviewEntity> {
-    int set(ShcpeMarketOverviewEntity shcpeMarketOverviewEntity);
+     int setValue(ShcpeMarketOverviewEntity shcpeMarketOverviewEntity);
 }

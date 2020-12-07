@@ -20,11 +20,11 @@ spring:
     timeout: 0
 
 mybatis:
-  mapper-locations: classpath:mapping/*Mapper.xml
+  mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.example.demo.po
 
 mybatis-plus:
-  mapper-locations: classpath*:mapping/*Mapper.xml
+  mapper-locations: classpath*:mapping/*.xml
   #实体扫描，多个package用逗号或者分号分隔
   typeAliasesPackage: com.example.demo.po
   global-config:
