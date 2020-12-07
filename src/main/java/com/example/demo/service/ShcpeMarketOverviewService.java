@@ -8,5 +8,4 @@ public interface ShcpeMarketOverviewService extends IService<ShcpeMarketOverview
 
     ShcpeMarketOverviewEntity get();
     void set();
-
 }

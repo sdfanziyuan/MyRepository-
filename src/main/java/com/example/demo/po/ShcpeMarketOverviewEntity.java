@@ -80,7 +80,7 @@ public class ShcpeMarketOverviewEntity implements Serializable {
     /**
      * 当年累计贴现金额（单位亿元）
      */
-    private BigDecimal yerDiscountAmount;
+    private BigDecimal yearDiscountAmount;
 
     /**
      * 当年累计交易笔数

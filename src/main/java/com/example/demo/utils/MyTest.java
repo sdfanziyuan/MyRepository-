@@ -19,7 +19,7 @@ public class MyTest {
     public void test1() throws InterruptedException {
         ReptileSh reptileSh = new ReptileSh();
         for (int i = 0;i < 5; i++){
-            reptileSh.GET_TEST();
+            reptileSh.getShcpeMarketOverview();
             Thread.currentThread().sleep(500);
         }
     }

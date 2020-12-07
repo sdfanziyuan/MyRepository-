@@ -36,7 +36,7 @@
             #{yearAcceptNum},
             #{yearAcceptAmount},
             #{yearDiscountNum},
-            #{yerDiscountAmount},
+            #{yearDiscountAmount},
             #{yearTradeNum},
             #{yearTradeAmount}
         )

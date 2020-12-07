@@ -5,6 +5,7 @@ import com.example.demo.po.ShcpeMarketOverviewEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -12,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.client.RestTemplate;
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -33,6 +33,8 @@ import java.util.UUID;
 @Component
 public class ReptileSh {
 
+    @Autowired
+    private RestTemplate restTemplate;
     /**
      * 日期后面加上星期
      */
@@ -45,7 +47,22 @@ public class ReptileSh {
         }catch (ParseException e){
             e.printStackTrace();
         }
-        dateString = dateString+" ("+String.format("%tA", date).replaceAll("星期","周")+")";
+        dateStringTemp = " ("+String.format("%tA", date).replaceAll("星期","周")+")";
+        if ("Monday".equals(dateStringTemp))
+            dateStringTemp = " (周一)";
+        else if ("Tuesday".equals(dateStringTemp))
+            dateStringTemp = " (周二)";
+        else if ("Wednesday".equals(dateStringTemp))
+            dateStringTemp = " (周三)";
+        else if ("Thursday".equals(dateStringTemp))
+            dateStringTemp = " (周四)";
+        else if ("Friday".equals(dateStringTemp))
+            dateStringTemp = " (周五)";
+        else if ("Saturday".equals(dateStringTemp))
+            dateStringTemp = " (周六)";
+        else if ("Sunday".equals(dateStringTemp))
+            dateStringTemp = " (周天)";
+        dateString = dateString+dateStringTemp;
         return dateString;
     }
 
@@ -63,8 +80,8 @@ public class ReptileSh {
      *      2.第二次请求url中加上第一次返回的Location （有时不加也行）
      */
     @Test
-    public ShcpeMarketOverviewEntity GET_TEST() {
-        RestTemplate restTemplate = new RestTemplate();
+    public ShcpeMarketOverviewEntity getShcpeMarketOverview() {
+        //RestTemplate restTemplate = new RestTemplate();
         ShcpeMarketOverviewEntity shcpeMarketOverviewEntity = null;
         try{
             HttpHeaders headers = new HttpHeaders();
@@ -104,6 +121,7 @@ public class ReptileSh {
                     data.putAll(resultJson.getJSONObject("marketOverviewDay"));
                     data.putAll(resultJson.getJSONObject("marketOverviewYear"));
                     data.put("stsDate",changeWeek(data.get("stsDate").toString()));
+                    data.put("yearDiscountAmount",data.get("yerDiscountAmount").toString());
                     shcpeMarketOverviewEntity =
                             JSONObject.parseObject(data.toJSONString(),ShcpeMarketOverviewEntity.class);
                     log.info("shcpeMarketOverviewEntity:"+shcpeMarketOverviewEntity.toString());

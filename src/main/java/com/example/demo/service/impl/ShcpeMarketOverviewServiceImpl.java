@@ -5,10 +5,8 @@ import com.example.demo.po.ShcpeMarketOverviewEntity;
 import com.example.demo.service.ShcpeMarketOverviewService;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
-import com.example.demo.mapper.ShcpeMarketOverviewDao;
 import com.example.demo.utils.ReptileSh;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -32,7 +30,7 @@ public class ShcpeMarketOverviewServiceImpl extends ServiceImpl<ShcpeMarketOverv
     }
     @Override
     public void set(){
-        ShcpeMarketOverviewEntity shcpeMarketOverviewEntity = reptileSh.GET_TEST();
+        ShcpeMarketOverviewEntity shcpeMarketOverviewEntity = reptileSh.getShcpeMarketOverview();
         if(null != shcpeMarketOverviewEntity)
              shcpeMarketOverviewDao.setValue(shcpeMarketOverviewEntity);
 
