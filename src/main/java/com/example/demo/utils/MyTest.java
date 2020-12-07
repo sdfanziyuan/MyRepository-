@@ -1,43 +1,37 @@
 package com.example.demo.utils;
 
-import com.example.demo.mapper.ShangHaiMapper;
 import com.example.demo.po.ShangHai;
 import com.example.demo.service.ShangHaiService;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
-import java.util.List;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * @author sdpjw
  * @email ljf8838@163.com
  * @date 2020/11/23 18:13
  */
-@Configuration
-public class MyTest {
-    @Autowired
-    private ShangHaiMapper shangHaiMapper;
-    private static MyTest myTest;
 
-    @PostConstruct
-    public void init(){
-        myTest = this;
-        myTest.shangHaiMapper = this.shangHaiMapper;
-    }
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class MyTest {
 
     @Test
-    public void test1(){
-        List<ShangHai> list = myTest.shangHaiMapper.getValues();
+    public void test1() throws InterruptedException {
+        ReptileSh reptileSh = new ReptileSh();
+        for (int i = 0;i < 5; i++){
+            reptileSh.GET_TEST();
+            Thread.currentThread().sleep(500);
+        }
     }
 
     @Test
     public void test2(){
-        ShangHaiService shangHaiService =
-                (ShangHaiService)ApplicationContextUtil.getBean("shangHaiService");
-        shangHaiService.addValues(new ShangHai());
+        for(int i = 0;i < 10;i++) {
+            ShangHaiService shangHaiService =
+                    (ShangHaiService) ApplicationContextUtil.getBean("shangHaiService");
+            shangHaiService.addValues(new ShangHai());
+        }
     }
 }

@@ -30,7 +30,7 @@ public class ShangHaiServiceImpl implements ShangHaiService {
     public int addValues(ShangHai shangHai) {
         int result;
         ReptileSh reptileSh = new ReptileSh();
-        Notice notice = reptileSh.GET_TEST() != null ? reptileSh.GET_TEST() : null;
+        Notice notice = reptileSh.GET_OK() != null ? reptileSh.GET_OK() : null;
         if(notice != null){
             System.out.println("getDayAcceptAmount="+notice.getData().getMarketOverviewDay().getDayAcceptAmount());
             shangHai.setDay_accept_amount(notice.getData().getMarketOverviewDay().getDayAcceptAmount());
@@ -40,7 +40,7 @@ public class ShangHaiServiceImpl implements ShangHaiService {
             shangHai.setDay_trade_amount(notice.getData().getMarketOverviewDay().getDayTradeAmount());
             shangHai.setDay_trade_num(notice.getData().getMarketOverviewDay().getDayTradeNum());
             shangHai.setEcds_mem_num(notice.getData().getMarketOverviewHead().getEcdsMemNum());
-            shangHai.setSts_date(notice.getData().getMarketOverviewHead().getStsDate());
+            shangHai.setSts_date(reptileSh.changeWeek(notice.getData().getMarketOverviewHead().getStsDate()));
             shangHai.setTrx_mem_num(notice.getData().getMarketOverviewHead().getTrxMemNum());
             shangHai.setYear_accept_amount(notice.getData().getMarketOverviewYear().getYearAcceptAmount());
             shangHai.setYear_accept_num(notice.getData().getMarketOverviewYear().getYearAcceptNum());

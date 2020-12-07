@@ -7,5 +7,6 @@ import com.baomidou.mybatisplus.service.IService;
 public interface ShcpeMarketOverviewService extends IService<ShcpeMarketOverviewEntity> {
 
     ShcpeMarketOverviewEntity get();
+    void set();
 
 }

@@ -12,4 +12,5 @@ import java.util.List;
 public interface ShangHaiService {
     List<ShangHai> getValues();
     int addValues(ShangHai shangHai);
+
 }

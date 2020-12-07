@@ -6,13 +6,19 @@ import com.example.demo.service.ShcpeMarketOverviewService;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.example.demo.mapper.ShcpeMarketOverviewDao;
+import com.example.demo.utils.ReptileSh;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+@Service("/shcpeMarketOverviewService")
 public class ShcpeMarketOverviewServiceImpl extends ServiceImpl<ShcpeMarketOverviewDao, ShcpeMarketOverviewEntity> implements ShcpeMarketOverviewService {
+    @Autowired
+    private ShcpeMarketOverviewDao shcpeMarketOverviewDao;
 
+    @Autowired
+    private ReptileSh reptileSh;
     @Override
     public ShcpeMarketOverviewEntity get() {
         // 获取最近一条市场数据
@@ -23,5 +29,12 @@ public class ShcpeMarketOverviewServiceImpl extends ServiceImpl<ShcpeMarketOverv
             return shcpeMarketOverviewEntityList.get(0);
         }
         return null;
+    }
+    @Override
+    public void set(){
+        ShcpeMarketOverviewEntity shcpeMarketOverviewEntity = reptileSh.GET_TEST();
+        if(null != shcpeMarketOverviewEntity)
+             shcpeMarketOverviewDao.set(shcpeMarketOverviewEntity);
+
     }
 }
