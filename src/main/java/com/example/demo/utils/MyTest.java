@@ -1,5 +1,6 @@
 package com.example.demo.utils;
 
+import com.example.demo.DemoApplication;
 import com.example.demo.service.ShcpeMarketOverviewService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
  */
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = DemoApplication.class)
 public class MyTest {
 
     @Test
@@ -24,6 +25,10 @@ public class MyTest {
             Thread.currentThread().sleep(500);
         }
     }
+
+    /**
+     * 某些地方的@Autowired在 junit中无效
+     */
     @Test
     public void test2(){
         ShcpeMarketOverviewService shcpeMarketOverviewService =
