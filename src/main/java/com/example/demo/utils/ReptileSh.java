@@ -33,8 +33,8 @@ import java.util.UUID;
 @Component
 public class ReptileSh {
 
-    @Autowired
-    private RestTemplate restTemplate;
+//    @Autowired
+//    private RestTemplate restTemplate;
     /**
      * 日期后面加上星期
      */
@@ -81,7 +81,7 @@ public class ReptileSh {
      */
     @Test
     public ShcpeMarketOverviewEntity getShcpeMarketOverview() {
-        //RestTemplate restTemplate = new RestTemplate();
+        RestTemplate restTemplate = new RestTemplate();
         ShcpeMarketOverviewEntity shcpeMarketOverviewEntity = null;
         try{
             HttpHeaders headers = new HttpHeaders();

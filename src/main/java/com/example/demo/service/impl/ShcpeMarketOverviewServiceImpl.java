@@ -15,8 +15,8 @@ public class ShcpeMarketOverviewServiceImpl extends ServiceImpl<ShcpeMarketOverv
     @Autowired
     private ShcpeMarketOverviewDao shcpeMarketOverviewDao;
 
-    @Autowired
-    private ReptileSh reptileSh;
+//    @Autowired
+//    private ReptileSh reptileSh;
     @Override
     public ShcpeMarketOverviewEntity get() {
         // 获取最近一条市场数据
@@ -30,7 +30,7 @@ public class ShcpeMarketOverviewServiceImpl extends ServiceImpl<ShcpeMarketOverv
     }
     @Override
     public void set(){
-        ShcpeMarketOverviewEntity shcpeMarketOverviewEntity = reptileSh.getShcpeMarketOverview();
+        ShcpeMarketOverviewEntity shcpeMarketOverviewEntity = new ReptileSh().getShcpeMarketOverview();
         if(null != shcpeMarketOverviewEntity)
              shcpeMarketOverviewDao.setValue(shcpeMarketOverviewEntity);
 

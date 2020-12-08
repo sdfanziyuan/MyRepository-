@@ -1,5 +1,6 @@
 package com.example.demo.utils;
 
+import com.example.demo.service.ShcpeMarketOverviewService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,6 +23,12 @@ public class MyTest {
             reptileSh.getShcpeMarketOverview();
             Thread.currentThread().sleep(500);
         }
+    }
+    @Test
+    public void test2(){
+        ShcpeMarketOverviewService shcpeMarketOverviewService =
+                (ShcpeMarketOverviewService)ApplicationContextUtil.getBean("shcpeMarketOverviewService");
+        shcpeMarketOverviewService.set();
     }
 
 }
