@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest(classes = DemoApplication.class)
 public class MyTest {
 
-    @Test
+//    @Test
     public void test1() throws InterruptedException {
         ReptileSh reptileSh = new ReptileSh();
         for (int i = 0;i < 5; i++){
@@ -29,7 +29,7 @@ public class MyTest {
     /**
      * 某些地方的@Autowired在 junit中无效
      */
-    @Test
+//    @Test
     public void test2(){
         ShcpeMarketOverviewService shcpeMarketOverviewService =
                 (ShcpeMarketOverviewService)ApplicationContextUtil.getBean("shcpeMarketOverviewService");

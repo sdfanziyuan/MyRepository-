@@ -17,7 +17,6 @@ import java.time.LocalDateTime;
 @Configuration      //1.主要用于标记配置类，兼备Component的效果。
 @EnableScheduling   // 2.开启定时任务
 public class SaticScheduleTask {
-    //@Scheduled(cron = "0/60 * * * * ?")
     //@Scheduled(fixedRate=1000*60*60)
     private void configureTasks() throws InterruptedException {
         System.err.println("执行静态定时任务时间: " + LocalDateTime.now());
