@@ -22,7 +22,7 @@ public class KafkaConsumer {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     //下面的主题是一个数组，可以同时订阅多主题，只需按数组格式即可，也就是用“，”隔开
-    @KafkaListener(topics = {"testTopic"})
+    @KafkaListener(topics = {"testTopic1"})
     public void receive(ConsumerRecord<?, ?> record){
 
         logger.info("消费得到的消息---key: " + record.key());
